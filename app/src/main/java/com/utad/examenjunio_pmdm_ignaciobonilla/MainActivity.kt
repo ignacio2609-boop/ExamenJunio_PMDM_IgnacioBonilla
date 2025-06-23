@@ -14,12 +14,12 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.utad.examenjunio_pmdm_ignaciobonilla.adapter.ItemAdapter
 import com.utad.examenjunio_pmdm_ignaciobonilla.databinding.ActivityMainBinding
-import com.utad.examenjunio_pmdm_ignaciobonilla.model.Model
+import com.utad.examenjunio_pmdm_ignaciobonilla.model.DatosReceta
 import com.utad.examenjunio_pmdm_ignaciobonilla.viewmodel.ItemViewModel
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private var listaActiva = ""
+    private var listaActiva = "all"
     private val viewModel: ItemViewModel by viewModels()
     private lateinit var adapter: ItemAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun cargarItems() {
         when(listaActiva){
-            "item1" -> {
+            "all" -> {
                 viewModel.items.observe(this) { itemList ->
                     if (itemList.isNotEmpty()){
                         adapter.updateData(itemList)
@@ -51,10 +51,10 @@ class MainActivity : AppCompatActivity() {
                         listaVacia(itemList)
                     }
                 }
-                this.setTitle("Item 1")
+                this.setTitle("All")
             }
 
-//            "item2" -> {
+//            "easy" -> {
 //                viewModel.items2.observe(this) { itemList ->
 //                    if (itemList.isNotEmpty()){
 //                        adapter.updateData(itemList)
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun listaVacia(itemList: List<Model>) {
+    private fun listaVacia(itemList: List<DatosReceta>) {
         if (itemList.isEmpty()) {
             binding.tvEmpty.visibility = View.VISIBLE
         } else {
@@ -84,16 +84,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.menu_item1-> listaActiva= "item1"
-            R.id.menu_item2-> listaActiva= "item2"
-            R.id.menu_item3-> listaActiva= "item3"
-            R.id.menu_item4-> listaActiva= "item4"
+            R.id.menu_item1-> listaActiva= "all"
+            R.id.menu_item2-> listaActiva= "easy"
+            R.id.menu_item3-> listaActiva= "medium"
         }
         cargarItems()
         return true
     }
 
-    private fun onItemSelected(item: Model){
+    private fun onItemSelected(item: DatosReceta){
         val intent = Intent(this, SecondActivity::class.java)
         intent.putExtra("item", item)
         this.startActivity(intent)

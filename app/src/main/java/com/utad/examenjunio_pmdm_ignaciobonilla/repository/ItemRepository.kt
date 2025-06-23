@@ -6,5 +6,5 @@ class ItemRepository {
     private val apiService = RetrofitClient.apiService
 
     suspend fun obtenerItems() = apiService.getItems()
-    fun obtenerItemById(id: Int) {}
+//    fun obtenerItemsByDifficulty(difficulty: String) = apiService.getDifficultyList()
 }

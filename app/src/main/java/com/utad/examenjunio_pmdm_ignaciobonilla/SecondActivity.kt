@@ -24,8 +24,8 @@ class SecondActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val item = intent.getSerializableExtra("item", Model::class.java)
-        binding.tvTitle.text = item?.title
-        setTitle(item?.title)
+        val item = intent.getParcelableExtra<Model>("item", Model::class.java)
+//        binding.tvTitle.text = item?.title
+//        setTitle(item?.title)
     }
 }

@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.utad.examenjunio_pmdm_ignaciobonilla.R
+import com.utad.examenjunio_pmdm_ignaciobonilla.model.DatosReceta
 import com.utad.examenjunio_pmdm_ignaciobonilla.model.Model
 
-class ItemAdapter(private var itemList: MutableList<Model>, private val onClickListener: (Model) -> Unit):
+class ItemAdapter(private var itemList: MutableList<DatosReceta>, private val onClickListener: (DatosReceta) -> Unit):
     RecyclerView.Adapter<ItemViewHolder>() {
-        fun updateData(newItems: List<Model>) {
+        fun updateData(newItems: List<DatosReceta>) {
             val size = itemList.size
             itemList.clear()
             notifyItemRangeRemoved(0, size)
