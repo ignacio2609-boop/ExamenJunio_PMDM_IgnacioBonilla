@@ -1,7 +1,9 @@
 package com.utad.examenjunio_pmdm_ignaciobonilla.adapter
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.utad.examenjunio_pmdm_ignaciobonilla.R
 import com.utad.examenjunio_pmdm_ignaciobonilla.model.Model
 
 class ItemAdapter(private var itemList: MutableList<Model>, private val onClickListener: (Model) -> Unit):
@@ -19,14 +21,15 @@ class ItemAdapter(private var itemList: MutableList<Model>, private val onClickL
         parent: ViewGroup,
         viewType: Int
     ): ItemViewHolder {
-        TODO("Not yet implemented")
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_info, parent, false)
+        return ItemViewHolder(view)
     }
 
     override fun onBindViewHolder(
         holder: ItemViewHolder,
         position: Int
     ) {
-        TODO("Not yet implemented")
+        holder.bind(itemList[position], onClickListener)
     }
 
     override fun getItemCount() = itemList.size

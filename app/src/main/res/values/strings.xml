@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">ExamenJunio_PMDM_IgnacioBonilla</string>
     <string name="no_items_found">No hay objetos en este momento</string>
+    <string name="all_difficulties">All difficulties</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
 </resources>

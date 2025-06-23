@@ -11,6 +11,6 @@ interface ApiService {
     // suspend fun getData(): Response<DataType>
 
     // Add more endpoints as needed
-//@GET("endpoint")
-//    suspend fun getItems(): List<Model>
+    @GET("/recipes")
+    suspend fun getItems(): List<Model>
 }

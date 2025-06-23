@@ -15,8 +15,10 @@ class ItemViewModel(): ViewModel() {
 
     // You can add more functions to fetch specific items or perform other operations
     // For example, if you want to fetch an item by ID:
-    // val itemById = liveData(Dispatchers.IO) {
-    //     val data = repository.obtenerItemById(itemId)
-    //     emit(data)
+     val itemById = liveData(Dispatchers.IO) {
+        val data = repository.obtenerItemById(itemId)
+        emit(data)
+    }
 
 }
+
